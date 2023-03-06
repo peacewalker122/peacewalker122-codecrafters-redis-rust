@@ -1,3 +1,5 @@
+mod pong;
+
 // Uncomment this block to pass the first stage
 use std::net::TcpListener;
 
@@ -13,6 +15,7 @@ fn main() {
         match stream {
             Ok(_stream) => {
                 println!("accepted new connection");
+                pong::handle_ping(_stream);
             }
             Err(e) => {
                 println!("error: {}", e);
