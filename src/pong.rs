@@ -9,17 +9,9 @@ pub(crate) fn handle_ping(mut stream: TcpStream) {
 
     println!("request_string: {:?}", request_string);
 
-    if request_string == ""{
-        let response = b"NIL VALuE\r";
-        stream.write(response).unwrap();
-    }
-    else if request_string == "PING\r\n" {
         let response = b"PONG\r";
         stream.write(response).unwrap();
-    }
-    else {
-        stream.write(request_string.as_bytes()).unwrap();
-    }
+
 
     stream.flush().unwrap();
 }
