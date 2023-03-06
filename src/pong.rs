@@ -9,7 +9,7 @@ pub(crate) fn handle_ping(mut stream: TcpStream) {
 
     println!("request_string: {:?}", request_string);
 
-        let response = b"PONG\r";
+        let response = b"+PONG\r\n";
         stream.write(response).unwrap();
 
 
